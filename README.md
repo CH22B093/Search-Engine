@@ -1,14 +1,24 @@
 # Search-Engine
 ======================== Research Paper Search Engine===============================
-Overview
-This application provides an interactive web interface and a command-line mode for searching research papers from an arXiv metadata snapshot. It supports: • Traditional IR ranking (BM25) • Latent Semantic Analysis (LSA) • Word2Vec query expansion • Optional DPR (Dense Passage Retrieval) reranking
+
+# Overview
+This application provides an interactive web interface and a command-line mode for searching research papers from an arXiv metadata snapshot. It supports: 
+• Traditional IR ranking (BM25) 
+• Latent Semantic Analysis (LSA) 
+• Word2Vec query expansion 
+• Optional DPR (Dense Passage Retrieval) reranking
 
 The front-end is built with Streamlit (app.py). The core search engine logic lives in Retrieval/main_3.py and Retrieval/information_Retrieval_3.py.
 
-Features
-• Load and preprocess millions of arXiv abstracts on startup (capped for development). • Build a combined BM25 + LSA + Word2Vec index once per session. • Fast query ranking with optional DPR re-ranking. • Streamlit UI: enter a query, select top-K results, view abstracts, authors, categories, and open papers on arXiv. • CLI mode: evaluate dataset (Cranfield), perform grid-search, or issue custom queries from the console. • Caching with Streamlit to avoid repeated index builds.
+# Features
+• Load and preprocess millions of arXiv abstracts on startup (capped for development). 
+• Build a combined BM25 + LSA + Word2Vec index once per session. 
+• Fast query ranking with optional DPR re-ranking. 
+• Streamlit UI: enter a query, select top-K results, view abstracts, authors, categories, and open papers on arXiv. 
+• CLI mode: evaluate dataset (Cranfield), perform grid-search, or issue custom queries from the console. 
+• Caching with Streamlit to avoid repeated index builds.
 
-Project Structure
+# Project Structure
 IR-system/ ├── app.py ← Streamlit front-end
 ├── dataset/
 │ └── arXiv/
@@ -25,7 +35,7 @@ IR-system/ ├── app.py ← Streamlit front-end
 ├── stopwordRemoval.py
 └── evaluation.py 
 
-Prerequisites
+# Prerequisites
 • Python 3.8+ (tested up to 3.11; 3.12 may require nightly PyTorch)
 • pip or conda environment
 • NLTK data (“punkt”, “stopwords”)
@@ -33,7 +43,7 @@ Prerequisites
 
 
 
-Install dependencies:
+# Install dependencies:
 pip install -r requirements.txt
 (Sample requirements.txt includes:
 streamlit
@@ -46,21 +56,21 @@ torch
 matplotlib
 )
 
-Download NLTK data:
+# Download NLTK data:
 python - <<EOF
 import nltk;
 nltk.download('punkt');
 nltk.download('stopwords');
 EOF
 
-Data Preparation
+# Data Preparation
 
 Placed the arXiv snapshot line-delimited JSON in:
 dataset/arXiv/arxiv-metadata-oai-snapshot.json
 
 Ensure “models/GoogleNews-vectors-negative300.bin” is present.
 
-Usage
+# Usage
 
 A. Streamlit Web App
 
