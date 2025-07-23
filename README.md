@@ -1,5 +1,5 @@
 # Search-Engine
-======================== Research Paper Search Engine
+======================== Research Paper Search Engine===============================
 Overview
 This application provides an interactive web interface and a command-line mode for searching research papers from an arXiv metadata snapshot. It supports: • Traditional IR ranking (BM25) • Latent Semantic Analysis (LSA) • Word2Vec query expansion • Optional DPR (Dense Passage Retrieval) reranking
 
