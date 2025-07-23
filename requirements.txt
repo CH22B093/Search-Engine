@@ -1,0 +1,13 @@
+streamlit
+requests
+numpy
+scikit-learn
+matplotlib
+nltk
+gensim
+sentence-transformers
+faiss-cpu
+huggingface_hub
+transformers
+torch
+rank_bm25
