@@ -1,8 +1,3 @@
-Sure! Here's your complete, well-organized `README.md` content as a single markdown file:
-
----
-
-```markdown
 # 📚 Research Paper Search Engine
 
 An interactive search engine to explore research papers from an arXiv metadata snapshot. It combines traditional IR techniques with modern embeddings and optional neural re-ranking.
@@ -30,7 +25,6 @@ An interactive search engine to explore research papers from an arXiv metadata s
 ## 🗂️ Project Structure
 
 ```
-
 IR-system/
 ├── app.py                        # Streamlit front-end
 ├── dataset/
@@ -40,15 +34,14 @@ IR-system/
 │   └── GoogleNews-vectors-negative300.bin
 ├── output/                       # Intermediate files & index dumps
 └── Retrieval/
-├── main\_3.py                # CLI & SearchEngine wrapper
-├── information\_Retrieval\_3.py  # BM25, LSA, W2V, DPR logic
-├── sentenceSegmentation.py
-├── tokenization.py
-├── inflectionReduction.py
-├── stopwordRemoval.py
-└── evaluation.py
-
-````
+    ├── main_3.py                # CLI & SearchEngine wrapper
+    ├── information_Retrieval_3.py  # BM25, LSA, W2V, DPR logic
+    ├── sentenceSegmentation.py
+    ├── tokenization.py
+    ├── inflectionReduction.py
+    ├── stopwordRemoval.py
+    └── evaluation.py
+```
 
 ---
 
@@ -66,10 +59,9 @@ IR-system/
 ```bash
 git clone https://github.com/your-username/IR-system.git
 cd IR-system
-````
+```
 
 ### 2. Install Dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
@@ -77,19 +69,18 @@ pip install -r requirements.txt
 <details>
 <summary>📄 Sample <code>requirements.txt</code> includes:</summary>
 
-* streamlit
-* rank\_bm25
-* scikit-learn
-* gensim
-* nltk
-* sentence-transformers
-* torch
-* matplotlib
+- streamlit  
+- rank_bm25  
+- scikit-learn  
+- gensim  
+- nltk  
+- sentence-transformers  
+- torch  
+- matplotlib  
 
 </details>
 
 ### 3. Download NLTK Resources
-
 ```bash
 python - <<EOF
 import nltk
@@ -100,13 +91,12 @@ EOF
 
 ### 4. Prepare Data
 
-* Place the arXiv JSON snapshot in:
-
+- Place the arXiv JSON snapshot in:
   ```
   dataset/arXiv/arxiv-metadata-oai-snapshot.json
   ```
-* Place Word2Vec binary model in:
 
+- Place Word2Vec binary model in:
   ```
   models/GoogleNews-vectors-negative300.bin
   ```
@@ -121,10 +111,10 @@ EOF
 python -m streamlit run app.py
 ```
 
-* Open browser: [http://localhost:8501](http://localhost:8501)
-* Enter your query
-* Choose number of top-K results
-* View abstracts, authors, categories, and arXiv links
+- Open browser: [http://localhost:8501](http://localhost:8501)
+- Enter your query
+- Choose number of top-K results
+- View abstracts, authors, categories, and arXiv links
 
 ---
 
@@ -139,7 +129,7 @@ python Retrieval/main_3.py [--options]
 #### ⚙️ Available CLI Options
 
 | Argument           | Description                                           |
-| ------------------ | ----------------------------------------------------- |
+|--------------------|-------------------------------------------------------|
 | `--dataset`        | Path to dataset folder (default: `../dataset/arXiv/`) |
 | `--out_folder`     | Path to output folder (default: `../output/`)         |
 | `--segmenter`      | Sentence segmenter: `punkt` or `naive`                |
@@ -153,14 +143,12 @@ python Retrieval/main_3.py [--options]
 
 #### 🧪 Example Commands
 
-* Evaluate dataset with default settings:
-
+- Evaluate dataset with default settings:
   ```bash
   python Retrieval/main_3.py
   ```
 
-* Run a custom query:
-
+- Run a custom query:
   ```bash
   python Retrieval/main_3.py --custom
   ```
@@ -169,14 +157,9 @@ python Retrieval/main_3.py [--options]
 
 ## ⚙️ Configuration Notes
 
-* In `app.py` → `load_search_engine()`:
+- In `app.py` → `load_search_engine()`:
+  - `max_papers`: cap number of abstracts loaded (e.g. 50000)
+  - `use_dpr`: set to `True` to enable neural reranking
 
-  * `max_papers`: cap number of abstracts loaded (e.g. 50000)
-  * `use_dpr`: set to `True` to enable neural reranking
-
-* In `main_3.py`:
-
-  * Extend or adjust CLI defaults in the parser section
-
----
-
+- In `main_3.py`:
+  - Extend or adjust CLI defaults in the parser section
